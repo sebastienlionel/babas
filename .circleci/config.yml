@@ -1,0 +1,149 @@
+class Bank:
+  nome= ''
+  sobrenome=''
+  cpf=0
+  numero_de_cartao=0
+  senha=0
+  Limite_de_credito=0
+  compra=''
+  movi=''
+  saldo=''
+
+
+lista=[]
+
+
+
+
+#funcao para inserir novo cliente no sistema
+def insere(lista):
+
+  print('Insere o cliente!')
+  print('='*30)
+  ban=Bank()
+  ban.nome=input('Nome do cliente: ')
+  ban.sobrenome=input('Sobrenome do cliente: ')
+  ban.cpf=int(input('cpf do cliente: '))
+  ban.Limite_de_credito=int(input('limite de credito: '))
+  ban.numero_de_cartao=int(input('O numero da cartao: '))
+  ban.senha=int(input('digite a senha: '))
+  ban.compra
+  ban.saldo
+  lista.append(ban)
+  print()
+ 
+  print()
+
+
+#funcao para exclui clientes
+def exclui(Lista):
+    Lista.remove(Lista([0]))
+    print()
+
+
+
+#funcao para de credito
+def movimento(movi):
+    lista.append(movi)
+    print('='*30)
+    print()
+    print('1- farmacia')
+    print('2- supermercado')
+    print('3- restaurante')
+    print('4- shopping')
+    print('='*30)
+    print()
+    categoria=int(input('digite a categoria de compra: '))
+    print() 
+    farmacia=['farmacia= ']
+    supermercado=['supermercado= ']
+    restaurante=['restaurante= ']
+    shopping=['shopping= ']
+
+    quantas=int(input('quantas compra voce quer fazer nessa categoria: '))
+    compratotal=0
+    print()
+    for i in range(quantas):
+      compra=int(input('Digite o valor da compra voce deseja fazer: '))
+      compratotal+=compra
+      print()
+      print()
+      if categoria==1:
+        farmacia.append(compra)
+      if categoria==2:
+        supermercado.append(compra)
+      if categoria==3:
+        restaurante.append(compra)
+      if categoria==4:
+        shopping.append(compra)
+
+
+
+    if compratotal>lista[0].Limite_de_credito:
+        print('Opa voce nao tem limite de credito suficiente para realizar essa operacao de credito porque voce comprou por',compratotal,'e seu limite de credito e de',lista[0] .Limite_de_credito,'!')
+
+    else:
+        print('operacao de credito realiza com sucesso! e seu saldo e: ',lista[0].Limite_de_credito-compratotal)
+        print('historico de compra')
+
+        if categoria==1:
+          print(farmacia)
+        if categoria==2:
+          print(supermercado)
+        if categoria==3:
+          print(restaurante)
+        if categoria==4:
+          print(shopping)
+
+#funcao para exclui clientes
+def exclui(Lista):
+  Lista.remove(Lista([0]))
+  print()
+
+
+
+print('seja bem vindo no sistema de ccbank')
+print()
+entra=int(input('digite 1 para entrar no sistema ccbank: '))
+print()
+insere(lista)
+print('='*30)
+print()
+if lista[0].senha>1000000:
+  print('error! por favor entra de novo os dados e digite um senha com 6 numeros')
+  print()
+  lista.remove(lista[0])
+  insere(lista)
+  print('Um novo cliente foi adicionado no sistema com sucesso !')
+  print()
+  print('agora escolhe qual tipo de operacao que voce quer realizar:')
+  print()
+  print('digite 1 para operacao de credito')
+  print('digite 2 para exclui cliente')
+  print('digite 3 para cadastrar novo cliente')
+  print()
+else:
+  print('Um novo cliente foi adicionado no sistema com sucesso')
+  print()
+   
+  print('agora escolhe qual tipo de operacao que voce quer realizar')
+  print()
+  print('digite 1 para operacao de credito')
+  print('digite 2 para exclui cliente')
+  print('digite 3 para cadastrar novo cliente')
+
+
+mov=int(input(''))
+if mov==1:
+  movimento(lista)
+print()
+
+if mov==2:
+  exclui(lista)
+  print('o cliente foi excluido com successo !')
+
+if mov==3:
+  insere(lista)
+  print()
+print(lista)
+
